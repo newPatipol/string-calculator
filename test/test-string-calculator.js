@@ -21,7 +21,8 @@ function exampleBehaviors() {
 }
 
 function testemptystring() {
-  expect(stringcalculator.EmptyString('').to.be.equal(0));
+ testresult = stringcalculator.EmptyString('');
+ expect(testresult).to.be.equal(0);
 }
 // Start Describe
 describe('Example', exampleBehaviors);

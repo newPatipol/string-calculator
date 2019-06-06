@@ -1,6 +1,6 @@
 function EmptyString(str) {
-  if (str === '') { return 0; 
-
+  if (str === '') {
+    return 0;
+  }
 }
-}
-exports.EmptyString = EmptyString();
+exports.EmptyString = EmptyString;
