@@ -1,3 +1,5 @@
+
+const stringcalculator = require ('../string-calculator.js')
 const chai = require('chai');
 
 const { expect } = chai;
@@ -18,6 +20,9 @@ function exampleBehaviors() {
   it('should be equal 2', itAlwaysBe2);
 }
 
+function testemptystring(){
+  expect(stringcalculator("").to.be.equal(0))
+}
 // Start Describe
 describe('Example', exampleBehaviors);
-
+describe('emtrystring',()=>{it('should be zero',testemptystring)})
