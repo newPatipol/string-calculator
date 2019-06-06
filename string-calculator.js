@@ -1,4 +1,3 @@
-function EmptyString(str){
-    if(str == '')
-    return 0
+function EmptyString(str) {
+  if (str === "") { return 0; }
 }
