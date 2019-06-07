@@ -45,6 +45,24 @@ function threeNumsSum() {
   expect(stringcalculator.EmptyString('1\n2\n3')).to.be.equal(6);
   expect(stringcalculator.EmptyString('1,2\n3')).to.be.equal(6);
 }
+
+function throwNegative() {
+  // const err = new TypeError('negative number');
+  expect(() => { stringcalculator.EmptyString('-1,2\n3'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('1,-2\n3'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('1,2\n-3'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('-1,-2\n3'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('1,-2\n-3'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('-1,-2\n-3'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('-1,2'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('1,-2'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('-1\n2'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('1\n-2'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('-1,-2'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('-1\n-2'); }).to.throw();
+  expect(() => { stringcalculator.EmptyString('-1'); }).to.throw();
+}
+
 // Start Describe
 describe('Example', exampleBehaviors);
 describe('emtrystring', () => { it('should be zero', testemptystring); });
@@ -53,4 +71,7 @@ describe('returnstring', () => { it('should be return', testreturnstr); });
 describe('checknewline', () => { it('should be sum', checknewline); });
 describe('threeNumsSum', () => {
   it('should be sum', threeNumsSum);
+});
+describe('throwNegative', () => {
+  it('throw negative', throwNegative);
 });

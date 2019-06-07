@@ -2,12 +2,11 @@
 function EmptyString(str) {
   if (str === '') {
     return 0;
-
     // eslint-disable-next-line
-  } else if (!isNaN(str)) {
+  }/* else if (!isNaN(str)) {
     const num = parseInt(str, 10);
     return num;
-  } /* else if (str.includes(',')) {
+  } else if (str.includes(',')) {
     const chars = str.split(',');
     return [chars[0], chars[1]];
   } else if (str.includes('\n')) {
@@ -21,6 +20,9 @@ function EmptyString(str) {
   let sum = 0;
   strArr.forEach((s) => {
     if (typeof parseInt(s, 10) === 'number') {
+      if (parseInt(s, 10) < 0) {
+        throw new Error('negative number');
+      }
       sum += parseInt(s, 10);
     }
   });
