@@ -28,20 +28,29 @@ function testreturnstr() {
   const testresultvalue = stringcalculator.EmptyString('1');
   expect(testresultvalue).to.be.equal(1);
 }
-
+/*
 function revaluenumstr() {
   const arrayvalue = stringcalculator.EmptyString('1,2');
   expect(Number(arrayvalue[0])).to.be.equal(1);
   expect(Number(arrayvalue[1])).to.be.equal(2);
-}
+} */
 
 function checknewline() {
   const testnewline = stringcalculator.EmptyString('1\n2');
   expect(Number(testnewline)).to.be.equal(3);
 }
+
+function threeNumsSum() {
+  expect(stringcalculator.EmptyString('1,2,3')).to.be.equal(6);
+  expect(stringcalculator.EmptyString('1\n2\n3')).to.be.equal(6);
+  expect(stringcalculator.EmptyString('1,2\n3')).to.be.equal(6);
+}
 // Start Describe
 describe('Example', exampleBehaviors);
 describe('emtrystring', () => { it('should be zero', testemptystring); });
 describe('returnstring', () => { it('should be return', testreturnstr); });
-describe('revaluenumstr', () => { it('should be sum', revaluenumstr); });
+// describe('revaluenumstr', () => { it('should be sum', revaluenumstr); });
 describe('checknewline', () => { it('should be sum', checknewline); });
+describe('threeNumsSum', () => {
+  it('should be sum', threeNumsSum);
+});
