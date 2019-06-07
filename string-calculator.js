@@ -3,7 +3,22 @@ function EmptyString(str) {
   if (str === '') {
     return 0;
     // eslint-disable-next-line
-  }/* else if (!isNaN(str)) {
+  }else if (str.includes('\n') || str.includes(',')) {
+    const separators = ['\n', ','];
+    const num = str.split(new RegExp(separators.join('\n'), ',')).map(Number);
+    const numsort = num.sort((a, b) => a - b);
+    let sum = 0;
+    for (let i = 0; i < numsort.length; i += 1) {
+      if (numsort[i] <= 1000 && numsort[i] > 0) {
+        sum += numsort[i];
+      } else {
+        throw new Error('it greater than 1000 or no negative number');
+      }
+    }
+    return sum;
+  }
+
+  /* else if (!isNaN(str)) {
     const num = parseInt(str, 10);
     return num;
   } else if (str.includes(',')) {

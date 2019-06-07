@@ -40,6 +40,11 @@ function checknewline() {
   expect(Number(testnewline)).to.be.equal(3);
 }
 
+function sumgreater() {
+  const result = stringcalculator.EmptyString('111,1001,112');
+  expect(result).to.be.equal(223);
+}
+
 function threeNumsSum() {
   expect(stringcalculator.EmptyString('1,2,3')).to.be.equal(6);
   expect(stringcalculator.EmptyString('1\n2\n3')).to.be.equal(6);
@@ -75,3 +80,4 @@ describe('threeNumsSum', () => {
 describe('throwNegative', () => {
   it('throw negative', throwNegative);
 });
+describe('sum numbers greater than 1000 are ignored', () => { it('should be zero', sumgreater); });
