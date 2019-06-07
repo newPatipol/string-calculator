@@ -31,11 +31,17 @@ function testreturnstr() {
 
 function revaluenumstr() {
   const arrayvalue = stringcalculator.EmptyString('1,2');
-  expect(arrayvalue[0]).to.be.equal(1);
-  expect(arrayvalue[1]).to.be.equal(2);
+  expect(Number(arrayvalue[0])).to.be.equal(1);
+  expect(Number(arrayvalue[1])).to.be.equal(2);
+}
+
+function checknewline() {
+  const testnewline = stringcalculator.EmptyString('1\n2');
+  expect(Number(testnewline)).to.be.equal(3);
 }
 // Start Describe
 describe('Example', exampleBehaviors);
 describe('emtrystring', () => { it('should be zero', testemptystring); });
 describe('returnstring', () => { it('should be return', testreturnstr); });
-describe('revaluenumstr', () => { it('should be num', revaluenumstr); });
+describe('revaluenumstr', () => { it('should be sum', revaluenumstr); });
+describe('checknewline', () => { it('should be sum', checknewline); });
