@@ -1,5 +1,5 @@
 
-const stringcalculator = require('../string-calculator.js');
+const { Calculator } = require('../string-calculator');
 const chai = require('chai');
 
 const { expect } = chai;
@@ -14,70 +14,49 @@ function itAlwaysBe2() {
   expect(2).to.be.equal(2);
 }
 
+function ValueofSumLessThan1000(){
+  expect(Calculator('1001')).to.equal(0);
+    expect(Calculator('1002,2,3')).to.equal(5);
+    expect(Calculator('1088\n80')).to.equal(80);
+    expect(Calculator('1002\n10,10')).to.equal(20);
+}
+
 // Start Example Behaviors
 function exampleBehaviors() {
   it('should be true', itAlwaysTrue);
   it('should be equal 2', itAlwaysBe2);
 }
 
-function testemptystring() {
-  const testresult = stringcalculator.EmptyString('');
-  expect(testresult).to.be.equal(0);
-}
-function testreturnstr() {
-  const testresultvalue = stringcalculator.EmptyString('1');
-  expect(testresultvalue).to.be.equal(1);
-}
-/*
-function revaluenumstr() {
-  const arrayvalue = stringcalculator.EmptyString('1,2');
-  expect(Number(arrayvalue[0])).to.be.equal(1);
-  expect(Number(arrayvalue[1])).to.be.equal(2);
-} */
-
-function checknewline() {
-  const testnewline = stringcalculator.EmptyString('1\n2');
-  expect(Number(testnewline)).to.be.equal(3);
-}
-
-function sumgreater() {
-  const result = stringcalculator.EmptyString('111,1001,112');
-  expect(result).to.be.equal(223);
-}
-
-function threeNumsSum() {
-  expect(stringcalculator.EmptyString('1,2,3')).to.be.equal(6);
-  expect(stringcalculator.EmptyString('1\n2\n3')).to.be.equal(6);
-  expect(stringcalculator.EmptyString('1,2\n3')).to.be.equal(6);
-}
-
-function throwNegative() {
-  // const err = new TypeError('negative number');
-  expect(() => { stringcalculator.EmptyString('-1,2\n3'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('1,-2\n3'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('1,2\n-3'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('-1,-2\n3'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('1,-2\n-3'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('-1,-2\n-3'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('-1,2'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('1,-2'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('-1\n2'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('1\n-2'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('-1,-2'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('-1\n-2'); }).to.throw();
-  expect(() => { stringcalculator.EmptyString('-1'); }).to.throw();
-}
 
 // Start Describe
 describe('Example', exampleBehaviors);
-describe('emtrystring', () => { it('should be zero', testemptystring); });
-describe('returnstring', () => { it('should be return', testreturnstr); });
-// describe('revaluenumstr', () => { it('should be sum', revaluenumstr); });
-describe('checknewline', () => { it('should be sum', checknewline); });
-describe('threeNumsSum', () => {
-  it('should be sum', threeNumsSum);
+
+describe('string calculator', () => {
+  it('should return 0 if string"" ', () => { expect(Calculator('')).to.equal(0); });
+
+  it('should return number form input', () => { expect(Calculator('76')).to.equal(76); });
+
+  it('should sum numbers split by ,', () => {
+    expect(Calculator('4,5')).to.equal(9);
+  });
+
+  it('should sum numbers split by newline', () => {
+    expect(Calculator('4\n7')).to.equal(11);
+    expect(Calculator('8 \n 6')).to.equal(14);
+  });
+
+  it('should sum numbers split by newline and ,', () => {
+    expect(Calculator('1\n2\n3')).to.equal(6);
+    expect(Calculator('1,2,3')).to.equal(6);
+    expect(Calculator('1,2\n3')).to.equal(6);
+  });
+  it('should no negative numbers', () => {
+    expect(() => Calculator('-1,-2')).to.throw();
+  });
+
+  it('should ignore number greater than 1000', () => {
+    //function stay above
+    ValueofSumLessThan1000()
+  });
 });
-describe('throwNegative', () => {
-  it('throw negative', throwNegative);
-});
-describe('sum numbers greater than 1000 are ignored', () => { it('should be zero', sumgreater); });
+
