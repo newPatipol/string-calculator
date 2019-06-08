@@ -1,7 +1,7 @@
-
+// eslint Unexpected use of 'isNaN'  no-restricted-globals
 function Calculator(str) {
   if (str === '') return 0;
-  // eslint-disable-no IsNaN global
+  // eslint-disable-next-line
   else if (!isNaN(str)) {
     if (Number(str) > 1000) { return 0; }
     return Number(str);

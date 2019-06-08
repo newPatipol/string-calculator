@@ -14,11 +14,11 @@ function itAlwaysBe2() {
   expect(2).to.be.equal(2);
 }
 
-function ValueofSumLessThan1000(){
+function ValueofSumLessThan1000() {
   expect(Calculator('1001')).to.equal(0);
-    expect(Calculator('1002,2,3')).to.equal(5);
-    expect(Calculator('1088\n80')).to.equal(80);
-    expect(Calculator('1002\n10,10')).to.equal(20);
+  expect(Calculator('1002,2,3')).to.equal(5);
+  expect(Calculator('1088\n80')).to.equal(80);
+  expect(Calculator('1002\n10,10')).to.equal(20);
 }
 
 // Start Example Behaviors
@@ -55,8 +55,8 @@ describe('string calculator', () => {
   });
 
   it('should ignore number greater than 1000', () => {
-    //function stay above
-    ValueofSumLessThan1000()
+    // function stay above
+    ValueofSumLessThan1000();
   });
 });
 
