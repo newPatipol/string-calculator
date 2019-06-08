@@ -1,4 +1,3 @@
-// eslint Unexpected use of 'isNaN'  no-restricted-globals
 function Calculator(str) {
   if (str === '') return 0;
   // eslint-disable-next-line
