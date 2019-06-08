@@ -34,25 +34,18 @@ describe('Example', exampleBehaviors);
 describe('string calculator', () => {
   it('should return 0 if string"" ', () => { expect(Calculator('')).to.equal(0); });
 
-  it('should return number form input', () => { expect(Calculator('76')).to.equal(76); });
+  it('should return number form input', () => { expect(Calculator('80')).to.equal(80); });
 
-  it('should sum numbers split by ,', () => {
-    expect(Calculator('4,5')).to.equal(9);
-  });
+  it('should sum numbers split by ,', () => { expect(Calculator('4,5')).to.equal(9); });
 
-  it('should sum numbers split by newline', () => {
-    expect(Calculator('4\n7')).to.equal(11);
-    expect(Calculator('8 \n 6')).to.equal(14);
-  });
+  it('should sum numbers split by newline', () => { expect(Calculator('4\n7')).to.equal(11); });
 
   it('should sum numbers split by newline and ,', () => {
     expect(Calculator('1\n2\n3')).to.equal(6);
     expect(Calculator('1,2,3')).to.equal(6);
     expect(Calculator('1,2\n3')).to.equal(6);
   });
-  it('should no negative numbers', () => {
-    expect(() => Calculator('-1,-2')).to.throw();
-  });
+  it('should no negative numbers', () => { expect(() => Calculator('-1,-2')).to.throw(); });
 
   it('should ignore number greater than 1000', () => {
     // function stay above
