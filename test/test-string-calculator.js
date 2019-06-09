@@ -1,5 +1,10 @@
 
-const { Calculator } = require('../string-calculator');
+const ProgramFunction = require('../string-calculator');
+// eslint-disable-next-line
+const Calculator = ProgramFunction.Calculator;
+// eslint-disable-next-line
+const Testdelimeter = ProgramFunction.Testdelimeter;
+
 const chai = require('chai');
 
 const { expect } = chai;
@@ -50,6 +55,10 @@ describe('string calculator', () => {
   it('should ignore number greater than 1000', () => {
     // function stay above
     ValueofSumLessThan1000();
+  });
+
+  it('should have delimeter in first line only', () => {
+    expect(Testdelimeter('#123/n123')).to.equal('ok delimeter rule');
   });
 });
 
