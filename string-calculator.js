@@ -30,8 +30,10 @@ function Testdelimeter(str) {
     for (let i = 1; i < input.length; i += 1) {
       if (input[i].includes('#')) {
         outstr += 'Have delimeter in first line only';
+        break;
       } else {
         outstr += 'ok delimeter rule';
+        break;
       }
     }
     return outstr;
