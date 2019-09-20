@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'jenkins-tower'
+        none
     }
     stages {
          stage('Prepare') {
